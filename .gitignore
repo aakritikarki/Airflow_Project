@@ -11,3 +11,7 @@ wheels/
 
 config/airflow.cfg
 
+echo "logs/" > .gitignore
+echo "*.log" >> .gitignore
+echo "__pycache__/" >> .gitignore
+
