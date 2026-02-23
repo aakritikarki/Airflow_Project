@@ -1,15 +1,15 @@
 
 from airflow.sdk import dag, task
 from pendulum import datetime, duration
-from airflow.timetables.trigger import DeltaTriggerTimeTable
+from airflow.timetables.interval import DeltaDataIntervalTimetable
 import pendulum
 
 @dag(
     dag_id="delta_3days_pipeline",
     start_date=datetime(2024, 2, 1, tz="UTC"),
-    schedule=DeltaTriggerTimeTable(duration(days=3)),  
+    schedule=DeltaDataIntervalTimetable(duration(days=3)),  
     catchup=False,
-    description="Pipeline runs every 3 days using DeltaTriggerTimeTable",
+    description="Pipeline runs every 3 days using DeltaDataIntervalTimetable",
     tags=["delta", "3days", "every-3-days"]
 )
 def delta_3days_pipeline():
